@@ -1,0 +1,18 @@
+.panel-content { padding:15px; }	
+body, input, label, option,select, #conductas li, #defaultpanel ul li,#defaultpanelconductas ul li,ui-panel-inner ul li, .ui-li, .ui-li-static, .ui-btn-up-a, .ui-link-inherit, .bx-wrapper .bx-pager, .bx-wrapper .bx-caption span, .ui-btn-text, #navfooter li{font-family:HelveticaNeueRegular}
+
+div#container {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+}
+.scrollable {
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+		
+.bannerNoLink{
+	text-decoration: none;
+	color:white;
+}

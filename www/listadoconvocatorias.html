@@ -31,10 +31,6 @@
     <script src="js/cordova.js"></script>
   <script type="text/javascript">
   	$(function(){
-			$('#continuar').click(function(){
-        window.open('http://www.enticconfio.gov.co/denuncia.html', '_blank');
-				//navigator.app.loadUrl("http://www.enticconfio.gov.co/denuncia.html", { openExternal:true });
-			});
 			 $('#backbtn').click(function(){
 				parent.history.back();
 				return false;
@@ -58,14 +54,7 @@
     <a href="#defaultpanel" data-role="button" data-inline="true" data-icon="bars" data-iconpos="notext"></a>
 	</div>
     <div data-role="content">
-        <!-- p style="font-family:HelveticaNeueRegular;
-                            text-align:justify;border:4px dashed #F90; 
-                            padding: 15px; 
-                            border-radius:10px; box-shadow:10px 10px 5px #999; background-color:rgba(255,204,0,.5); text-align:center"><img src="img/denuncie.png" width="70%" /><br /><span style="font-family:HelveticaNeueRegular">Listado Total Convocatorias</span>
-                            </br>                            
-                            </p -->
-       
-
+        
       <!-- div data-role="collapsible-set" id="listConvocatorias" data-theme="a">
                           
       </div -->
@@ -84,11 +73,6 @@
       </ul>
       <br/>
 
-
-
-
-
-
 	  </div>
     <div data-role="footer">
       <div class="ui-grid-a" style="text-align:center;margin-top:10px;">
@@ -105,7 +89,7 @@
     <div data-role="panel" id="defaultpanel" data-theme="e">
         <!-- div class="panel-content" -->
         <ul data-role="listview">
-            <li data-icon="home" data-theme="e"><a href="index.html">Inicio</a></li>
+            <li data-icon="home" data-theme="e"><a href="index.html" rel="external">Inicio</a></li>
             <li data-theme="c"><a href="#" rel="external">NOTICIAS</a></li>
             <li data-theme="e"><a href="listadoconvocatorias.html" rel="external">Convocatorias</a></li>
             <li data-theme="b"><a href="#" rel="external">Favoritos</a></li>

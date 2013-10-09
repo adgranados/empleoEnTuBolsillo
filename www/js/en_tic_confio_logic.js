@@ -33,7 +33,8 @@ facebookGo = function(url){
 	sessionStorage.setItem("compartirurl",url);
 	
 	if(url != null){
-		window.location.href = "facebook.html";
+		//window.location.href = "facebook.html";
+		window.open('https://m.facebook.com/sharer.php?u='+url, '_blank');
 		//window.open('https://m.facebook.com/sharer.php?u='+url, '_blank');
 	}
 }

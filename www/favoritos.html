@@ -6,7 +6,6 @@
   
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <!-- meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /-->
         
@@ -16,7 +15,9 @@
         
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>         
-
+        <script type="text/javascript">
+            app.initialize();
+        </script>        
   
     <link rel="stylesheet" type="text/css" href="css/cnsc.css">
       <link rel="stylesheet" type="text/css" href="fonts/stylesheet.css">
@@ -27,33 +28,42 @@
   
 
 <script src="js/jquery-1.10.0.min.js"></script>
-<script src="js/cordova.js"></script>
-<script type="text/javascript" src="js/soapCnsc.js"></script>
-<script type="text/javascript">
-            app.initialize();
-</script>   
+    <script src="js/cordova.js"></script>
+  <script type="text/javascript" src="js/soapCnsc.js"></script>
   <script type="text/javascript">
   	$(function(){
-              GetAllOpecs(function(data){
-                  console.log(data);
-                  data = data["soap:Envelope"]["soap:Body"]["ns2:GetAllOpecsResponse"]["return"]
+			 $('#backbtn').click(function(){
+				parent.history.back();
+				return false;
+			});
 
-                  $.each(data,function(index,Opec){
-                    $("#convocatorias").append('<li data-theme="a"><a href="javascript:void(1)" onclick="goDetalleConvocatoria('+Opec["numeroConvocatoria"]["#text"]+')" rel="external">'+Opec["entidad"]["#text"]+'</a><div class="ui-li-count">'+Opec["numeroVacantes"]["#text"]+'</div></li>')
-                  })
-                  $('#convocatorias').listview('refresh');
+
+              $("#empleos").empty();
+
+              response = localStorage.getItem("favoritos");
+
+              if(response!= undefined){
+
+
+              response = JSON.parse(Base64.decode(response))
+                    
+        
+              $.each(response,function(index, empleo_data_1){
+                  empleo_data = response[index]
+                  var content_empleo_data = '<div data-role="collapsible" data-collapsed="false" data-theme="b"><h3>' + empleo_data["denominacion"]["#text"] + " - " + empleo_data["ciudad"]["#text"] + '</h3><p style="text-align:justify; font-family:HelveticaNeueRegular;"><b>Ciudad: </b> '+empleo_data["ciudad"]["#text"]+' <br/><b>Código: </b> '+empleo_data["codigo"]["#text"]+' <br/><b>Denominación: </b> '+empleo_data["denominacion"]["#text"]+' <br/><b>Equivalencia: </b> '+empleo_data["equivalencia"]["#text"]+' <br/><b>Experiencia: </b> '+empleo_data["experiencia"]["#text"]+' <br/><b>Grado: </b> '+empleo_data["grado"]["#text"]+ '<br/><b>Nivel: </b> '+empleo_data["nivel"]["#text"]+' <br/><b>Número de Vacantes: </b> '+empleo_data["numeroVacantes"]["#text"]+' <br/><b>Requisitos y estudios: </b> '+empleo_data["requisitosEstudios"]["#text"]+' <br/><b>Salario: </b> '+empleo_data["salario"]["#text"]+'<br/></p></div>'
+
+
+                  $("#empleos").append(content_empleo_data);
+
               })
-
-      			 $('#backbtn').click(function(){
-      				parent.history.back();
-      				return false;
-      			});
+                 $("#empleos").trigger("create");
+           }       
 		});
 		
 		
 		// Wait for Cordova to load
     //
-//    document.addEventListener("deviceready", onDeviceReady, false);
+    document.addEventListener("deviceready", onDeviceReady, false);
 
   </script>  <script src="js/jquery.mobile-1.3.1.min.js"></script>
   <script type="text/javascript" src="js/en_tic_confio_logic.js"></script>
@@ -75,13 +85,15 @@
       <p style="font-family:HelveticaNeueRegular;
                             border:4px dashed #082f57; 
                             padding: 15px; 
-                            border-radius:10px; box-shadow:10px 10px 5px #999; background-color:#CEE3F6; text-align:center;">
-              <span style="text-align:center;font-size:36px;"><b>CONVOCATORIAS</b></span>
+                            border-radius:10px; box-shadow:10px 10px 5px #999; background-color:#F2F5A9; text-align:center;">
+          <span style="text-align:center;font-size:36px;"><b>FAVORITOS</b></span>                      
       </p>
       
-      <br/>
-      <ul data-role="listview" id="convocatorias">
-      </ul>
+
+      <div id="empleos" data-role="collapsible-set" style="background-color:#F2F5A9;">
+
+        
+      </div>
       <br/>
 
 	  </div>

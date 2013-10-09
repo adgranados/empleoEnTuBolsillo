@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" / -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>CNSC</title>
+
+        <!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>         
+        <script type="text/javascript">
+            app.initialize();
+        </script>        
+
+        <link rel="stylesheet" type="text/css" href="css/enticconfio.css">
+        <link rel="stylesheet" type="text/css" href="fonts/stylesheet.css">
+        <!-- link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" -->
+        <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css">
+        <link href="css/c_n_s_c_.min.css" rel="stylesheet" type="text/css"/>
+        <!-- script src="http://code.jquery.com/jquery-1.10.0.min.js"></script -->
+        <script src="js/jquery-1.10.0.min.js"></script>
+
+          
+          <!-- bxSlider Javascript file -->
+        <script src="js/jquery.bxslider.min.js"></script>
+        <script src="js/plugins/jquery.fitvids.js"></script>
+        <!-- bxSlider CSS file -->
+        <link href="css/jquery.bxslider.css" rel="stylesheet" />  
+
+        <script src="js/jquery.mobile-1.3.1.min.js"></script>
+        <script type="text/javascript" src="js/en_tic_confio_logic.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/scriptCordoba.js"></script>
+
+        <script type="text/javascript">
+
+           /* document.addEventListener("deviceready", onDeviceReady, false);
+
+            function onDeviceReady() {
+           
+            }*/
+        
+
+            $(function(){   
+
+                     // Now safe to use the PhoneGap API
+
+                //eventos
+               /****************************************************************************
+                var url ="http://www.enticconfio.gov.co/rest/consultarTipsConducta?pkey=fe1132c415f6b7968f54e68c8264d17c10208288&pwd=/5GfdtrsLk&&conducta=eventos";
+                    
+                $.get(url, {},function(data) {
+                    //console.log(data);
+                    $.each(data,function(index,itemd){
+                        //generateItem(itemd,"#newsCiberdependencia");
+                        //console.log(itemd);
+                        var typeItem    = itemd["type"];
+                        var title       = itemd["title"].substring(0,100);
+                        var url         = itemd["url"]; 
+                        var vermas      = itemd["urlmas"];
+                        var texto       = itemd["text"];
+                        title = "<a href='#' class='bannerNoLink' data-role='button' data-theme='c' style='overflow:hidden;' onclick='eventosGo("+index+")'>"+title+"<img src='img/edit-redo.png' align='right' /></a>"
+                    
+                        var li = [];
+                        if(url != null  && url != "" && url.match(/null/g)==null)
+                            switch (typeItem){
+                                case "video":
+                                    var parrafo = [];
+                                    pattern = /.*\/v\/([A-z0-9]*)/i
+                                    regResponse = pattern.exec(url)
+                                    if(regResponse != null){
+                                        videoCode = regResponse[1];
+
+                                        li = $('<li style="background:no-repeat cover;background-image:url(http://img.youtube.com/vi/'+videoCode+'/0.jpg);-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover; background-size: cover;"><img src="img/enTicConfio_play1.png" width="100%" title="'+(title!=null?title:"")+'" /></li>');
+                                    
+                                        $('.bxslider').append(li);
+                                    }
+                                        
+                                            
+                                break;
+                                case "imageText":
+                                    li = $('<li><img src="'+url+'" width="100%" title="'+title+'"/></li>')
+                                    $('.bxslider').append(li);
+                                    break;
+                                case "image":
+                                    li = $('<li><img src="'+url+'" width="100%" title="'+title+'"/></li>')
+                                    $('.bxslider').append(li);
+                                    break;
+                            }
+                        
+                        
+                    });
+                    
+
+                ***********************************************************************/
+                   /* $('.bxslider').bxSlider({
+                        adaptiveHeight: true,
+                        mode: 'fade',
+                        captions: true,
+                        preventDefaultSwipeY: false**************/
+
+                        /*onSliderLoad: function(){
+                            // do funky JS stuff here
+                            alert('Slider has finished loading. Click OK to continue!');
+                        },
+                        onSlideAfter: function(){
+                            // do mind-blowing JS stuff here
+                            alert('A slide has finished transitioning. Bravo. Click OK to continue!');
+                        }*/
+                    /*});
+                                    
+                });*********/
+            
+
+                $('.bxslider').bxSlider({
+                        adaptiveHeight: true,
+                        mode: 'fade',
+                        captions: true,
+                        preventDefaultSwipeY: false
+                        /*onSliderLoad: function(){
+                            // do funky JS stuff here
+                            alert('Slider has finished loading. Click OK to continue!');
+                        },
+                        onSlideAfter: function(){
+                            // do mind-blowing JS stuff here
+                            alert('A slide has finished transitioning. Bravo. Click OK to continue!');
+                        }*/
+                    });
+
+
+            }).error(function(){
+                console.log("faill");
+            });
+            
+                
+        </script>
+    </head>
+    <body>
+        
+        <div data-role="page" id="page1">
+            <div data-role="header" style="text-align:right;">
+                <img src="img/logos/CNSC_Logo - Blanco.png" style="width:40%; padding:5px" />
+                <a href="#defaultpanel" data-role="button" data-inline="true" data-icon="bars" data-iconpos="notext"></a>
+            </div>
+
+            <div data-role="content">
+          
+              <!-- a href="#popupVideo" data-rel="popup" data-position-to="window" data-role="button" aria-haspopup="true" aria-owns="#popupVideo">  <img src="img/ciberacosoedited-1.jpg" /></a>
+               
+               <div data-role="popup" id="popupVideo" data-overlay-theme="a" data-theme="d" data-tolerance="15,15" class="ui-content">
+
+                <iframe src="http:\/\/www.youtube.com\/v\/Y75A-F39bYQ" width="100%" height="298" seamless></iframe>
+                 
+                </div -->
+
+
+
+                <div id="carruselHome">
+                    <br />
+                    <!-- ul class="bxslider" style="width: auto; position: relative;padding-left: 0px;margin-top: 0px;margin-bottom: 0px;">
+                    </ul -->                    
+                    <ul class="bxslider" style="width: auto; position: relative;padding-left: 0px;margin-top: 0px;margin-bottom: 0px;">
+                        <li>
+                            <img src="img/noticias/convocatoriaDAPRE.jpg" width="100%" title="pruaba" />
+                        </li>
+                        <li>
+                            <img src="img/noticias/convocatoriaINVIMA.jpg" width="100%" title="pruaba" />
+                        </li>
+                        <li>
+                            <img src="img/noticias/convocatoriaMEN.jpg" width="100%" title="pruaba" />
+                        </li>
+                        <li>
+                            <img src="img/noticias/convocatoriaUGPP.jpg" width="100%" title="pruaba" />
+                        </li>                        
+                    </ul>
+
+
+
+
+
+                </div>
+
+
+                <!-- div id="netowrk">
+                    <h3>Check network connection type:</h3>
+                    <a data-role="button" id="checkConnection" data-theme="e">Check Network</a>
+                    <h3>Online / Offline Section</h3>
+                    <p id="online">
+                        Example content that is displayed when the device <strong>has</strong> Internet connectivity.
+                    </p>
+                    <p id="offline">
+                        Example content that is displayed when the device <strong>doesn't have</strong> Internet connectivity.
+                    </p>
+                </div -->
+
+
+
+                <hr />
+
+
+                <div class="ui-grid-a" style="text-align:center;margin-top:10px;">
+                    <div class="ui-block-a"> 
+                      <a href="listadoconvocatorias.html" data-role="button" id="Noticias" data-theme="a" style="text-align:center;">Convocatorias</a>           
+                    </div>     
+                    <div class="ui-block-b"> 
+                        <a href ="#" data-role="button" id="Convocatorias" data-theme="a" style="text-align:center;">Favoritos</a>
+                    </div>
+                </div>    
+
+
+                <!-- a href="#" data-role="button" data-theme="a" data-inline="true" rel="external">Noticias</a>
+                <br/>
+                <a href="#" data-role="button" data-theme="a" data-inline="true" rel="external">Convocatorias</a -->
+                <br/>
+
+            </div>
+
+
+            <div data-role="footer">
+                <!--div data-role="navbar">
+                    <ul>
+                        <li><a href="#" data-theme="c" rel="external">Favoritos</a></li>
+                        <li><a href="#" data-theme="d" rel="external">-----</a></li>
+                    </ul>
+                </div --><!-- /navbar -->
+        
+                <div class="ui-grid-a" style="text-align:center;margin-top:10px;">
+                    <div class="ui-block-a"><img src="img/logos/LogoMinticSVGv2.png" width="70%" /> </div>
+                    <div class="ui-block-b"><img src="img/logos/Logo_Vive_digital.png" width="70%" style="text-align:right;"/></div>     
+                    
+                    <br/><br/>
+                </div>
+
+            </div> 
+    
+            <!-- defaultpanel  -->
+            <div data-role="panel" id="defaultpanel" data-theme="e">
+ 
+                <!-- div class="panel-content" -->
+                <ul data-role="listview">
+                    <!--li data-icon="home" ><a href="index.html">Inicio</a></li-->
+                    <li data-theme="c"><a href="#" rel="external">NOTICIAS</a></li>
+                    <li data-theme="e"><a href="listadoconvocatorias.html" rel="external">Convocatorias</a></li>
+                    <li data-theme="b"><a href="#" rel="external">Favoritos</a></li>
+                    <li data-theme="d" data-icon="info"><a href="acercade.html" rel="external">Acerca de</a></li>  
+                    <li data-icon="delete" data-theme="e">
+                        <a href="#demo-links" data-rel="close" data-theme="c" data-icon="delete" data-inline="true">Cerrar Panel</a>
+                    </li>
+                </ul> 
+
+            </div><!-- /defaultpanel -->
+
+        </div>      
+
+    </body>
+</html>

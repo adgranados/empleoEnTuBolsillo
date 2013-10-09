@@ -1,3 +1,8 @@
+goDetalleConvocatoria = function(Opec_id){
+	sessionStorage.setItem("Opec_id",Opec_id);
+	window.location.href = "detalleconvocatoria.html";
+}
+
 // JavaScript Document
 
 onDeviceReady = function(){

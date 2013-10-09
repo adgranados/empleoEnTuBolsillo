@@ -61,7 +61,13 @@ processSOAP = function (url, PostDATA, function_callback){
                 callback(response);
             })
         } 
-
+        GetOpec = function(convocatoria_id,callback){
+            var url = url_wsdl;
+            var sr = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cnsc="http://cnsc/"><soapenv:Header/><soapenv:Body><cnsc:GetOpec><!--Optional:--><arg0>'+convocatoria_id+'</arg0></cnsc:GetOpec></soapenv:Body></soapenv:Envelope>';
+            processSOAP(url,sr,function(response){
+                callback(response);
+            })
+        }
 
         GetAllEmpleosOpec = function (convocatoria_id,callback){
 
@@ -97,6 +103,7 @@ processSOAP = function (url, PostDATA, function_callback){
                                 ciudades.push(ciudad)
                     });
                     $("#"+select_id).empty()
+                    $("#"+select_id).append("<option value='-1'>Filtrar por Ciudad</option>")
                     $.each(ciudades,function(index,data){
                         $("#"+select_id).append("<option value='"+data+"'>"+data+"</option>")
                     });
@@ -126,7 +133,6 @@ processSOAP = function (url, PostDATA, function_callback){
                 callback(response)
             })
         }
-        una y q despues si se crean otras
 
         GetNivelesEmpleosOpecToSelect = function (convocatoria_id, select_id){
             if(convocatoria_id == undefined)
@@ -147,6 +153,7 @@ processSOAP = function (url, PostDATA, function_callback){
                                 niveles.push(nivel)
                     });
                     $("#"+select_id).empty()
+                    $("#"+select_id).append("<option value='-1'>Filtrar por Nivel</option>")
                     $.each(niveles,function(index,data){
                         $("#"+select_id).append("<option value='"+data+"'>"+data+"</option>")
                     });
